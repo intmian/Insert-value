@@ -115,6 +115,7 @@
   <ItemGroup>
     <ClCompile Include="Insertvalue.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TOOL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Insertvalue.h" />
@@ -124,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Insertvalue.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TOOL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
