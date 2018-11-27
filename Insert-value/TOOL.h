@@ -15,16 +15,15 @@ namespace GRA_TOOL
 	};
 	class Shape
 	{
-	private:
-		std::vector<Point> points_;
 	public:
 		Shape(const std::vector<Point>& points);
+		std::vector<Point> points_;
 	};
 
 	class Tool
 	{
 	public:
-		static std::vector<Point> GetPointFromFile(const std::string sourse);
+		static std::vector<Point>&& GetPointFromFile(const std::string sourse);
 		static void WritePointsToFile(const std::string target, const std::vector<Point>& points);
 		static std::vector<Shape> GetMiddleShape(const Shape& shapeStart, const Shape& shapeEnd, int numOfMiddle);
 	};
