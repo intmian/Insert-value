@@ -25,6 +25,28 @@ std::vector<Line> GRA_TOOL::Shape::ToLines()
 	return result;
 }
 
+std::vector<PointPolar> GRA_TOOL::Tool::PointsToPointsPolar(const std::vector<Point> points)
+{
+	vector<PointPolar> result;
+	for (auto point : points)
+	{
+		PointPolar pp(point);
+		result.push_back(pp);
+	}
+	return result;
+}
+
+std::vector<Point> GRA_TOOL::Tool::PointsPolarToPoint(const std::vector<PointPolar> PointsPolars)
+{
+	vector<Point> result;
+	for (auto pointsPolar : PointsPolars)
+	{
+		Point point(pointsPolar);
+		result.push_back(point);
+	}
+	return result;
+}
+
 std::vector<Point> GRA_TOOL::Tool::GetPointsFromFile(const std::string sourse)
 {
 	vector<Point> results;
@@ -55,7 +77,6 @@ void GRA_TOOL::Tool::WritePointsToFile(const std::string target, const std::vect
 
 std::vector<Shape> GRA_TOOL::Tool::GetMiddleShape(const Shape & shapeStart, const Shape & shapeEnd, int numOfMiddle)
 {
-	// TOFIX
 	vector<Shape> result;
 	int x, y;
 	int pNum = shapeStart.points_.size();
@@ -71,4 +92,10 @@ std::vector<Shape> GRA_TOOL::Tool::GetMiddleShape(const Shape & shapeStart, cons
 		result.push_back(Shape(pointsInMiddle));
 	}
 	return result;
+}
+
+std::vector<Shape> GRA_TOOL::Tool::GetMiddleShapeVector(const Shape & shapeStart, const Shape & shapeEnd, int numOfMiddle)
+{
+	// TODO: 完成矢量插值功能
+	
 }
