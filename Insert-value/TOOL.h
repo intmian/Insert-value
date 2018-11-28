@@ -2,8 +2,20 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <cmath>
 namespace GRA_TOOL
 {
+	class Point;
+	struct PointPolar
+	{
+		double theta;
+		double r;
+		PointPolar(const Point& point)
+		{
+			r = std::sqrt(point.x_ * point.x_ + point.y_ * point.y_);
+			theta = std::atan(static_cast<double>(point.y_) / static_cast<double>(point.x_));
+		}
+	};
 
 	struct Point
 	{
