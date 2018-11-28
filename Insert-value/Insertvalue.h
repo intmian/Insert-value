@@ -4,7 +4,7 @@
 #include "ui_Insertvalue.h"
 #include <QPainter>
 #include "TOOL.h"
-
+#include <string>
 using namespace GRA_TOOL;
 
 class Insertvalue : public QMainWindow

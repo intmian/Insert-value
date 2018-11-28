@@ -25,7 +25,7 @@ std::vector<Line> GRA_TOOL::Shape::ToLines()
 	return result;
 }
 
-std::vector<Point>&& GRA_TOOL::Tool::GetPointFromFile(const std::string sourse)
+std::vector<Point> GRA_TOOL::Tool::GetPointsFromFile(const std::string sourse)
 {
 	vector<Point> results;
 	ifstream fp(sourse.c_str(), ios::in);
@@ -38,7 +38,7 @@ std::vector<Point>&& GRA_TOOL::Tool::GetPointFromFile(const std::string sourse)
 		results.push_back(Point(x, y));
 	}
 	fp.close();
-	return move(results);
+	return results;
 }
 
 void GRA_TOOL::Tool::WritePointsToFile(const std::string target, const std::vector<Point>& points)

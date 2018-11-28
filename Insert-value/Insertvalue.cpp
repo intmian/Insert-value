@@ -1,5 +1,5 @@
 #include "Insertvalue.h"
-
+using std::string;
 using std::vector;
 Insertvalue::Insertvalue(QWidget *parent)
 	: QMainWindow(parent)
@@ -13,28 +13,18 @@ void Insertvalue::paintEvent(QPaintEvent * event)
 	QPainter painter(this);
 	DrawPrepare(painter,true);
 	painter.setPen(QPen(QColor(0, 160, 230), 2));
-	Shape shape1({
-		Point(50,50),
-		Point(50,100),
-		Point(100,200),
-		Point(100,40)
-		});
-	Shape shape2({
-		Point(1000,50),
-		Point(1000,100),
-		Point(1150,100),
-		Point(1150,50)
-		});
+	Shape shape1(Tool::GetPointsFromFile(string("car1.txt")));
+	//Shape shape2(Tool::GetPointsFromFile(string("car2.txt")));
 	DrawShape(painter, shape1);
-	DrawShape(painter, shape2);
-	vector<Shape> shapes = Tool::GetMiddleShape(shape1, shape2,3);
-	for (auto shape : shapes)
+	//DrawShape(painter, shape2);
+	//vector<Shape> shapes = Tool::GetMiddleShape(shape1, shape2,5);
+	/*for (auto shape : shapes)
 	{
 		DrawShape(painter, shape);
-	}
+	}*/
 }
 
-void DrawShape(QPainter& painter,Shape shape)
+void DrawShape(QPainter & painter,Shape shape)
 {
 	vector<Line> lines = shape.ToLines();
 	for (auto line : lines)
