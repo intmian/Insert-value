@@ -2,9 +2,9 @@
 #include <vector>
 #include <string>
 #include <fstream>
-
 namespace GRA_TOOL
 {
+
 	struct Point
 	{
 		int x_, y_;
@@ -13,13 +13,22 @@ namespace GRA_TOOL
 			x_(x), y_(y)
 		{}
 	};
+	struct Line
+	{
+		Point start_;
+		Point end_;
+		Line(const Point& start, const Point& end)
+			:
+			start_(start), end_(end)
+		{}
+	};
 	class Shape
 	{
 	public:
 		Shape(const std::vector<Point>& points);
 		std::vector<Point> points_;
+		std::vector<Line> ToLines();
 	};
-
 	class Tool
 	{
 	public:

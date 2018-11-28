@@ -16,8 +16,6 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -25,28 +23,21 @@ QT_BEGIN_NAMESPACE
 class Ui_InsertvalueClass
 {
 public:
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
     QWidget *centralWidget;
-    QStatusBar *statusBar;
+    QMenuBar *menuBar;
 
     void setupUi(QMainWindow *InsertvalueClass)
     {
         if (InsertvalueClass->objectName().isEmpty())
             InsertvalueClass->setObjectName(QStringLiteral("InsertvalueClass"));
-        InsertvalueClass->resize(600, 400);
-        menuBar = new QMenuBar(InsertvalueClass);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        InsertvalueClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(InsertvalueClass);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        InsertvalueClass->addToolBar(mainToolBar);
+        InsertvalueClass->resize(1381, 407);
         centralWidget = new QWidget(InsertvalueClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         InsertvalueClass->setCentralWidget(centralWidget);
-        statusBar = new QStatusBar(InsertvalueClass);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        InsertvalueClass->setStatusBar(statusBar);
+        menuBar = new QMenuBar(InsertvalueClass);
+        menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 1381, 26));
+        InsertvalueClass->setMenuBar(menuBar);
 
         retranslateUi(InsertvalueClass);
 
