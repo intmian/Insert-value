@@ -6,8 +6,9 @@
 namespace GRA_TOOL
 {
 	class Point;
-	struct PointPolar
+	class PointPolar
 	{
+	public:
 		double theta_;
 		double r_;
 		PointPolar(const Point& point)
@@ -15,10 +16,16 @@ namespace GRA_TOOL
 			r_ = std::sqrt(point.x_ * point.x_ + point.y_ * point.y_);
 			theta_ = std::atan(static_cast<double>(point.y_) / static_cast<double>(point.x_));
 		}
+		PointPolar(double theta,double r)
+			:
+			theta_(theta),
+			r_(r)
+		{}
 	};
 
-	struct Point
+	class Point
 	{
+	public:
 		int x_, y_;
 		Point(int x, int y)
 			:
@@ -50,7 +57,7 @@ namespace GRA_TOOL
 	{
 	public:
 		static std::vector<PointPolar> PointsToPointsPolar(const std::vector<Point> points);
-		static std::vector<Point> PointsPolarToPoint(const std::vector<PointPolar> PointsPolars);
+		static std::vector<Point> PointsPolarToPoints(const std::vector<PointPolar> PointsPolars);
 		static std::vector<Point> GetPointsFromFile(const std::string sourse);
 		static void WritePointsToFile(const std::string target, const std::vector<Point>& points);
 		static std::vector<Shape> GetMiddleShape(const Shape& shapeStart, const Shape& shapeEnd, int numOfMiddle);

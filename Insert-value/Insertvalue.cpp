@@ -17,7 +17,7 @@ void Insertvalue::paintEvent(QPaintEvent * event)
 	Shape shape2(Tool::GetPointsFromFile(string("pencil2.txt")));
 	DrawShape(painter, shape1);
 	DrawShape(painter, shape2);
-	vector<Shape> shapes = Tool::GetMiddleShape(shape1, shape2,5);
+	vector<Shape> shapes = Tool::GetMiddleShapeVector(shape1, shape2,5);
 	for (auto shape : shapes)
 	{
 		DrawShape(painter, shape);

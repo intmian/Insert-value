@@ -36,7 +36,7 @@ std::vector<PointPolar> GRA_TOOL::Tool::PointsToPointsPolar(const std::vector<Po
 	return result;
 }
 
-std::vector<Point> GRA_TOOL::Tool::PointsPolarToPoint(const std::vector<PointPolar> PointsPolars)
+std::vector<Point> GRA_TOOL::Tool::PointsPolarToPoints(const std::vector<PointPolar> PointsPolars)
 {
 	vector<Point> result;
 	for (auto pointsPolar : PointsPolars)
@@ -96,6 +96,22 @@ std::vector<Shape> GRA_TOOL::Tool::GetMiddleShape(const Shape & shapeStart, cons
 
 std::vector<Shape> GRA_TOOL::Tool::GetMiddleShapeVector(const Shape & shapeStart, const Shape & shapeEnd, int numOfMiddle)
 {
-	// TODO: 完成矢量插值功能
-	
+	vector<Shape> result;
+	int pNum = shapeStart.points_.size();
+	double theta, r;
+	vector<PointPolar> startVectorPoints = PointsToPointsPolar(shapeStart.points_);
+	vector<PointPolar> endVectorPoints = PointsToPointsPolar(shapeEnd.points_);
+	for (int i = 1; i <= numOfMiddle; i++)
+	{
+		vector<PointPolar> middlePolarPoints;
+		for (int j = 0; j < pNum; j++)
+		{
+			theta = (endVectorPoints[j].theta_ - startVectorPoints[j].theta_)*i / (numOfMiddle + 1) + startVectorPoints[j].theta_;
+			r = (endVectorPoints[j].r_ - startVectorPoints[j].r_)*i / (numOfMiddle + 1) + startVectorPoints[j].r_;
+			middlePolarPoints.push_back(PointPolar(theta, r));
+		}
+		result.push_back(Shape(PointsPolarToPoints(middlePolarPoints)));
+	}
+	return result;
 }
+
