@@ -30,13 +30,13 @@ public:
     {
         if (InsertvalueClass->objectName().isEmpty())
             InsertvalueClass->setObjectName(QStringLiteral("InsertvalueClass"));
-        InsertvalueClass->resize(946, 800);
+        InsertvalueClass->resize(1287, 850);
         centralWidget = new QWidget(InsertvalueClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         InsertvalueClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(InsertvalueClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 946, 26));
+        menuBar->setGeometry(QRect(0, 0, 1287, 26));
         InsertvalueClass->setMenuBar(menuBar);
 
         retranslateUi(InsertvalueClass);

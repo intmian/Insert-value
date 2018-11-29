@@ -13,11 +13,11 @@ void Insertvalue::paintEvent(QPaintEvent * event)
 	QPainter painter(this);
 	DrawPrepare(painter,true);
 	painter.setPen(QPen(QColor(0, 160, 230), 2));
-	Shape shape1(Tool::GetPointsFromFile(string("pencil1.txt")));
-	Shape shape2(Tool::GetPointsFromFile(string("pencil2.txt")));
+	Shape shape1(Tool::GetPointsFromFile(string("car1.txt")));
+	Shape shape2(Tool::GetPointsFromFile(string("car2.txt")));
 	DrawShape(painter, shape1);
 	DrawShape(painter, shape2);
-	vector<Shape> shapes = Tool::GetMiddleShapeVector(shape1, shape2,5);
+	vector<Shape> shapes = Tool::GetMiddleShapeVector(shape1, shape2,3);
 	for (auto shape : shapes)
 	{
 		DrawShape(painter, shape);

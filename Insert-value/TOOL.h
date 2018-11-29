@@ -11,11 +11,7 @@ namespace GRA_TOOL
 	public:
 		double theta_;
 		double r_;
-		PointPolar(const Point& point)
-		{
-			r_ = std::sqrt(point.x_ * point.x_ + point.y_ * point.y_);
-			theta_ = std::atan(static_cast<double>(point.y_) / static_cast<double>(point.x_));
-		}
+		PointPolar(const Point& point);
 		PointPolar(double theta,double r)
 			:
 			theta_(theta),

@@ -115,3 +115,8 @@ std::vector<Shape> GRA_TOOL::Tool::GetMiddleShapeVector(const Shape & shapeStart
 	return result;
 }
 
+GRA_TOOL::PointPolar::PointPolar(const Point & point)
+{
+r_ = std::sqrt(point.x_ * point.x_ + point.y_ * point.y_);
+theta_ = std::atan(static_cast<double>(point.y_) / static_cast<double>(point.x_));
+}
